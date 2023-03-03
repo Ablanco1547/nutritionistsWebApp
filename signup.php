@@ -37,7 +37,5 @@
     }
     ?>
     </section>
-
-
 </body>
 </html>
