@@ -11,11 +11,20 @@
         <h2>Log in</h2>
         <div class="fomrContainer">
             <form action="includes/login.inc.php" method="post">
-                <input type="text" name="user" placeholder="Usuario">
-                <input type="password" name="password" placeholder="Contraseña">
+                <input type="text" name="uid" placeholder="Usuario">
+                <input type="password" name="pwd" placeholder="Contraseña">
                 <button type="submit" name="submit">Iniciar Sesion</button>
             </form>
         </div>
+        <?php
+    if(isset($_GET["error"])){
+        if($_GET["error"] == "emptyinput"){
+            echo"<p>Please fill in all fields</p>";
+        }else if($_GET["error"] == "wronglogin"){
+            echo"<p>Invalid login information</p>";
+        }
+    }
+    ?>
     </section>
 </body>
 </html>

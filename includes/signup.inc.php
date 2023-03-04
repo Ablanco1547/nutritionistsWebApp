@@ -22,7 +22,7 @@ if(isset($_POST["submit"])){
         header("location: ../signup.php?error=invalidemail");
         exit();
     }
-    if(pwdMatch($pwd) !== false){
+    if(pwdMatch($pwd,$pwdrepeat) !== false){
         header("location: ../signup.php?error=passwordsdontmatch");
         exit();
     }
