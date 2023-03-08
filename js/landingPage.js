@@ -131,30 +131,103 @@ const interpretarComposicionHombre = (pCalculoComposicion) =>{
 };
 
 
-estaturaCm.addEventListener("change",(imc)=>{
+edad.addEventListener("keyup",(imc)=>{
     let existeValorPeso = esVacio(peso.value);
     let existeValorEstatura = esVacio(estaturaCm.value);
+    let valorEstaturaMetros = calcularCmsAMts(estaturaCm.value)
+    let resultadoComparacion;
+    let calculoIMC;
+    console.log(valorEstaturaMetros);
     
     console.log(estaturaMtsValue)
     console.log(typeof estaturaMtsValue)
 
     if(existeValorEstatura == true && existeValorPeso == true){
-        let calculoIMC = calcularIMC(peso.value,estaturaMts.value);
-        valorIMC.innerHTML = calculoIMC;
-
-
+        calculoIMC = calcularIMC(peso.value,estaturaMtsValue);
+        valorIMC.innerHTML = calculoIMC.toFixed(2);
     }else{
         estadoIMC.innerHTML = "Llene el campo 'Peso en kg' y el campo 'Talla en centimetros'";
     }
 
+    if(edad.value >= 20 && edad.value < 65) {
+        alert
+        resultadoComparacion = comparacionIMCAdulto(calculoIMC);
+        estadoIMC.innerHTML = resultadoComparacion;
+    }else if(edad.value >= 65){
+        resultadoComparacion = comparacionIMCAdultoMayor(calculoIMC);
+        estadoIMC.innerHTML = resultadoComparacion;
+    }else{
+        estadoIMC.innerHTML = "Por favor haga la comparacion con la hoja de curvas de la CCSS"
+    }
 })
 
 const calcularIMC = (pPeso,pEstaturaMts ) =>{
     let potencia = Math.pow(pEstaturaMts,2)
     let calculoIMC = pPeso/potencia;
 
-    console.log(pEstaturaMts)
-    console.log(typeof pEstaturaMts)
-
     return calculoIMC
 };
+//preguntar como se aregla esto
+const comparacionIMCAdulto = (pIMC) =>{
+    switch (true) {
+        case pIMC >= 40:
+            return "Obesidad 3"
+            break;
+        case pIMC >= 35:
+            return "Obesidad 2"
+            break;
+        case pIMC >= 30:
+            return "Obesidad 1"
+            break;
+        case pIMC >= 25:
+            return "Sobrepeso"
+            break;
+        case pIMC >= 18.5:
+            return "Normal"
+            break;
+        case pIMC >= 17:
+            return "Peso bajo 1"
+            break;
+        case pIMC >= 16:
+            return "Peso bajo 2"
+            break;
+        case pIMC < 16:
+            return "Peso bajo 3"
+            break;    
+        }
+
+};
+
+const comparacionIMCAdultoMayor = (pIMC) =>{
+    switch (true) {
+        case pIMC >= 40:
+            return "Obesidad 3"
+            break;
+        case pIMC >= 35:
+            return "Obesidad 2"
+            break;
+        case pIMC >= 30:
+            return "Obesidad 1"
+            break;
+        case pIMC >= 27:
+            return "Sobrepeso"
+            break;
+        case pIMC >= 22:
+            return "Normal"
+            break;
+        case pIMC >= 18.5:
+            return "Peso insuficiente"
+            break;
+        case pIMC >= 18.4:
+            return "Desnutricion leve"
+            break;
+        case pIMC < 16.9:
+            return "Desnutricion moderada"
+            break;    
+        case pIMC < 16:
+            return "Desnutricion severa"
+            break; 
+        }
+        
+
+}
