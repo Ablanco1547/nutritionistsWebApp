@@ -46,7 +46,7 @@
     <div>
         <label for="sexo">Sexo</label>
         <select name="sexo" id="sexo">
-            <option value="" disabled selected>Seleccione una opcion</option>
+            <option value="x" disabled selected>Seleccione una opcion</option>
             <option value="m">Mujer</option>
             <option value="h">Hombre</option>
         </select>
@@ -71,21 +71,29 @@
     <section id="resultadosAntropometricas">
 
         <div>
-            <label for="masaGrasa">Masa grasa</label>
+            <h4>Masa grasa</h4>
             <p id="masaGrasa">Llene el campo 'Peso actual' y el campo 'Porcentaje de grasa corporal'</p>
         </div>
         
         <div>
-            <label for="masaLibreGrasa">Masa libre de grasa</label>
+            <h4>Masa libre de grasa</h4>
             <p id="masaLibreGrasa">Llene el campo 'Peso actual' y el campo 'Porcentaje de grasa corporal'</p>
         </div>
 
         <div>
-            <label for="composicionCorporal">Composicion corporal: <span id="composicionTamanno"></span></label>
-            <p id="composicionCorporal">0</p>
+            <h4>Composicion corporal: <span id="composicionTamanno"></span></h4>
+            <p id="composicionCorporal">Llene el campo 'Talla en cms' y el campo 'Circunferencia de la muñeca'</p>
         </div>
         
 
+
+    </section>
+
+    <section id="seccionIMC">
+        <div>
+            <h4>IMC: <span id="valorIMC"></span></h4>
+            <p id="estadoIMC">Llene el campo 'Peso en kg' y el campo 'Talla en centimetros'</p>
+        </div>
 
     </section>
     </div>
