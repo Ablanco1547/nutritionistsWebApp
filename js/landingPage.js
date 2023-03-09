@@ -14,6 +14,9 @@ let composicionCorporal = document.querySelector('#composicionCorporal');
 let composicionTamanno = document.querySelector('#composicionTamanno');
 let valorIMC = document.querySelector('#valorIMC');
 let estadoIMC = document.querySelector('#estadoIMC');
+const botonPesoIdeal = document.querySelector("#botonPesoIdeal");
+const valorPIdealAda = document.querySelector('#valorPIdealAda');
+let calculoEstatura;
 
 estaturaCm.addEventListener("keyup", (event) => {
     calculoEstatura = calcularCmsAMts(estaturaCm.value);
@@ -134,13 +137,8 @@ const interpretarComposicionHombre = (pCalculoComposicion) =>{
 edad.addEventListener("keyup",(imc)=>{
     let existeValorPeso = esVacio(peso.value);
     let existeValorEstatura = esVacio(estaturaCm.value);
-    let valorEstaturaMetros = calcularCmsAMts(estaturaCm.value)
     let resultadoComparacion;
     let calculoIMC;
-    console.log(valorEstaturaMetros);
-    
-    console.log(estaturaMtsValue)
-    console.log(typeof estaturaMtsValue)
 
     if(existeValorEstatura == true && existeValorPeso == true){
         calculoIMC = calcularIMC(peso.value,estaturaMtsValue);
@@ -230,4 +228,80 @@ const comparacionIMCAdultoMayor = (pIMC) =>{
         }
         
 
+}
+
+const valorPAjustadoAda = document.querySelector('#valorPAjustadoAda');
+const ajustadoAdaMas10 = document.querySelector('#ajustadoAdaMas10');
+const ajustadoAdaMenos10 = document.querySelector('#ajustadoAdaMenos10');
+const valorPIdealIMC = document.querySelector('#valorPIdealIMC');
+const valorPAjustadoIMC = document.querySelector('#valorPAjustadoIMC');
+
+botonPesoIdeal.addEventListener('click',(pIdeal)=>{
+    let existeValorEstatura = esVacio(estaturaCm.value);
+    let existeValorPeso = esVacio(peso.value);
+
+    let errorADA = "Seleccione el Sexo del paciente"
+    let resultadoADAIdeal;
+    if(existeValorEstatura == true && existeValorPeso == true){
+        resultadoADAIdeal = compararSexo(sexo.value, errorADA, estaturaCm.value, calcularADAMujer, calcularADAHombre)
+        valorPIdealAda.innerHTML = resultadoADAIdeal.toFixed(2)+ " kgs";
+
+        resultadoADAajustado = ADAAjustado(resultadoADAIdeal, peso.value);
+        valorPAjustadoAda.innerHTML = resultadoADAajustado.toFixed(2) + " kgs";
+
+        ajustadoAdaMas10.innerHTML = (resultadoADAIdeal-(resultadoADAIdeal*0.1)).toFixed(2);
+        ajustadoAdaMenos10.innerHTML = (resultadoADAIdeal+(resultadoADAIdeal*0.1)).toFixed(2)
+
+        let composicion = composicionTamanno.innerHTML;
+        let resultadoIMCIdeal = calcularIMCIdeal(composicion);
+        console.log(resultadoIMCIdeal);
+
+        
+    }else{
+        valorPIdealAda.innerHTML = "Llene el campo 'Talla en centimetros', el campo 'Sexo' y el campo 'Peso'";
+    }
+
+})
+
+//composiciontamanno y talla en metros
+const calcularIMCIdeal = (pComposicion) =>{
+    let calculo
+    switch(pComposicion){
+        case "Grande":
+            calculo = Math.pow(calculoEstatura, 2)
+            return 25*calculo;
+            break;
+        case "Mediana":
+            calculo = Math.pow(calculoEstatura, 2)
+            return 22.5*calculo;
+            break;
+        case "Pequeña":
+            calculo = Math.pow(calculoEstatura, 2)
+            return 20*calculo;
+            break;
+    }
+}
+
+const ADAAjustado = (pResultadoADAIdeal, pPeso) =>{
+    return (((pPeso-pResultadoADAIdeal)/4)+pResultadoADAIdeal);
+}
+
+const compararSexo = (pSexo, error, parametro, casoMujer, casoHombre)=>{
+    if(pSexo == "m"){
+        let resultadoMujer = casoMujer(parametro);
+        return resultadoMujer;
+    }else if (pSexo == "h"){
+        let resultadoHombre = casoHombre(parametro);
+        return resultadoHombre;
+    }else{
+        return error;
+    }
+}
+
+const calcularADAMujer = (pEstaturaCms) =>{
+    return ((((pEstaturaCms-152)*2.3)/2.5)+45.5); 
+}
+
+const calcularADAHombre = (pEstaturaCms) =>{
+    return ((((pEstaturaCms-152)*2.7)/2.5)+48.2);
 }
