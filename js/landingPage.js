@@ -47,7 +47,7 @@ grasaCorporal.addEventListener("keyup",(event) => {
     if(existeValorGrasa == true && existeValorPeso == true){
 
         let valorMasaGrasa = calcularMasaGrasa(peso.value,grasaCorporal.value);
-        masaGrasa.innerHTML = valorMasaGrasa;
+        masaGrasa.innerHTML = valorMasaGrasa.toFixed(2);
         
         let valorMasaLibreGrasa = calcularMasaLibreGrasa(peso.value, valorMasaGrasa);
         masaLibreGrasa.innerHTML = valorMasaLibreGrasa;
@@ -231,6 +231,8 @@ const comparacionIMCAdultoMayor = (pIMC) =>{
 }
 
 const valorPAjustadoAda = document.querySelector('#valorPAjustadoAda');
+const idealAdaMas10 = document.querySelector('#idealAdaMas10');
+const idealAdaMenos10 = document.querySelector('#idealAdaMenos10');
 const ajustadoAdaMas10 = document.querySelector('#ajustadoAdaMas10');
 const ajustadoAdaMenos10 = document.querySelector('#ajustadoAdaMenos10');
 const valorPIdealIMC = document.querySelector('#valorPIdealIMC');
@@ -246,15 +248,28 @@ botonPesoIdeal.addEventListener('click',(pIdeal)=>{
         resultadoADAIdeal = compararSexo(sexo.value, errorADA, estaturaCm.value, calcularADAMujer, calcularADAHombre)
         valorPIdealAda.innerHTML = resultadoADAIdeal.toFixed(2)+ " kgs";
 
-        resultadoADAajustado = ADAAjustado(resultadoADAIdeal, peso.value);
+        let resultadoADAajustado = ADAAjustado(resultadoADAIdeal, peso.value);
         valorPAjustadoAda.innerHTML = resultadoADAajustado.toFixed(2) + " kgs";
 
-        ajustadoAdaMas10.innerHTML = (resultadoADAIdeal-(resultadoADAIdeal*0.1)).toFixed(2);
-        ajustadoAdaMenos10.innerHTML = (resultadoADAIdeal+(resultadoADAIdeal*0.1)).toFixed(2)
 
+        let resultadoAdaMas10 =  calcularAjustadoAdaMas10(resultadoADAIdeal);
+        let resultadoAdaMenos10 = calcularAjustadoAdaMenos10(resultadoADAIdeal);
+        idealAdaMas10.innerHTML = resultadoAdaMas10.toFixed(2);
+        idealAdaMenos10.innerHTML = resultadoAdaMenos10.toFixed(2);
+
+        let resultadoAdaAjustadoMas10 =  calcularADAAjustadoDiez(peso.value, resultadoAdaMas10);
+        let resultadoAjustadoMenos10 = calcularADAAjustadoDiez(peso.value, resultadoAdaMenos10);
+        ajustadoAdaMas10.innerHTML = resultadoAdaAjustadoMas10.toFixed(2);
+        ajustadoAdaMenos10.innerHTML = resultadoAjustadoMenos10.toFixed(2);
         let composicion = composicionTamanno.innerHTML;
         let resultadoIMCIdeal = calcularIMCIdeal(composicion);
-        console.log(resultadoIMCIdeal);
+
+
+        valorPIdealIMC.innerHTML = resultadoIMCIdeal;
+
+        let resultadoIMCAjustado = calcularIMCAjustado(peso.value, resultadoIMCIdeal);
+
+        valorPAjustadoIMC.innerHTML = resultadoIMCAjustado.toFixed(2);
 
         
     }else{
@@ -263,7 +278,25 @@ botonPesoIdeal.addEventListener('click',(pIdeal)=>{
 
 })
 
-//composiciontamanno y talla en metros
+
+
+const calcularAjustadoAdaMas10 = (pResultadoADAIdeal) =>{
+    return (pResultadoADAIdeal-(pResultadoADAIdeal*0.1));
+}
+
+const calcularAjustadoAdaMenos10 = (pResultadoADAIdeal) =>{
+    return (pResultadoADAIdeal+(pResultadoADAIdeal*0.1));
+}
+const calcularADAAjustadoDiez = (pPeso, pResultado) =>{
+    return (((pPeso-pResultado)/4)+pResultado);
+}
+
+const calcularIMCAjustado = (pPeso, pResultadoIMCIdeal) =>{
+
+    return (((pPeso - pResultadoIMCIdeal)/4)+pResultadoIMCIdeal);
+
+}
+
 const calcularIMCIdeal = (pComposicion) =>{
     let calculo
     switch(pComposicion){
