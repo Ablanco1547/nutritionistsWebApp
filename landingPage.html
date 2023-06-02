@@ -6,59 +6,314 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
 </head>
 
 <body>
     <?php session_start();?>
 
-    <h1>Hello</h1>
 
-    <button><a href="includes/logout.inc.php">Desloguearse</a></button>
 
+<ul id="navbar">
+    <li>
+
+        <div class="contenedorLogo">
+            <a href="index.php">
+                <img class="logo" src="media/332389118_1293787391492551_1282763326629383693_n.jpg" alt="Logo de la empresa Nutricense que es una letra n con una hoja de arbol" srcset="">
+            </a>
+        </div>
+
+    </li>
+    <h1>NUTRICENSE</h1>
+    <li>
+        <button><a href="includes/logout.inc.php">Desloguearse</a></button>
+    </li>
+</ul>
+
+
+<div class="contenedorMedidas">
+    <h2>MEDIDAS ANTROPOMETRICAS</h2>
+    <h3>Llene todos los campos</h3>
+
+
+    <div class="itemAntro" id="nombreCompleto">
+        <label for="edad">Nombre completo</label>
+        <input type="text" name="edad" id="edad">
+    </div>
+    
+    <div class="contenedorSecundario">
+
+        <div class="contenedorInterno">
+
+            <div class="itemAntro">
+                <label for="sexo">Sexo</label>
+                <select name="sexo" id="sexo">
+                    <option value="x" disabled selected>Seleccione una opcion</option>
+                    <option value="m">Mujer</option>
+                    <option value="h">Hombre</option>
+                </select>
+            </div>
+            <div class="itemAntro">
+                <label for="edad">Edad (años)</label>
+                <input type="text" name="edad" id="edad">
+            </div>
+            <div class="itemAntro">
+                <label for="peso">Peso actual (kgs)</label>
+                <input type="text" name="peso" id="peso">
+            </div>
+            
+            <div class="itemAntro">
+                <label for="estatura">Talla en centimetros (cms)</label>
+                <input type="text" name="estatura" id="estatura">
+            </div>
+
+
+
+        
+        </div>
+        <div class="contenedorInterno">
+
+
+            <div class="itemAntro">
+                <label for="circunferenciaMunneca">Circunferencia de la muñeca (cms)</label>
+                <input type="text" name="circunferenciaMunneca" id="circunferenciaMunneca">
+            </div>
+
+            <div class="itemAntro">
+                <label for="composicionTamanno">Composicion corporal: <span id=""></span></label>
+                <input type="text" name="composicionTamanno" id="composicionTamanno" disabled>
+                <!--<p id="composicionCorporal"></p>-->
+            </div>
+
+            <div class="itemAntro">
+                <label for="grasaCorporal">Porcentaje de grasa corporal (%)</label>
+                <input type="text" name="grasaCorporal" id="grasaCorporal">
+            </div>
+            <div class="itemAntro">
+                <label for="actividadFisica">Actividad física</label>
+                <select name="actividadFisica" id="actividadFisica">
+                    <option value="" disabled selected>Seleccione una opcion</option>
+                    <option value="1">Encamado ventilacion</option>
+                    <option value="2">Encamado</option>
+                    <option value="3">Sedentario</option>
+                    <option value="4">Actividad fisica</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+<section id="resultadosAntro">
+<h2>EVALUACION ANTROPOMETRICA</h2>
+    <div class="contenedorSecundario">
+        <div class="contenedorInterno">
+        
+                 <!--<div>
+                    <h4>Masa grasa</h4>
+                    <p id="masaGrasa"></p>
+                </div>
+        
+                <div>
+                    <h4>Masa libre de grasa</h4>
+                    <p id="masaLibreGrasa"></p>
+                </div>
+        
+               <div>
+                   <h4>Composicion corporal: <span id="composicionTamanno"></span></h4>
+                    <p id="composicionCorporal"></p>
+                </div>
+        
+                <div>
+                    <h4>IMC: <span id="valorIMC"></span></h4>
+                    <p id="estadoIMC"></p>
+                </div>
+                <div>
+                    <h4>Peso ideal (ADA): <span id="valorPIdealAda"></span></h4>
+                </div>
+                <div>
+                    <h4>Peso ideal ADA -10%: <span id="idealAdaMas10"></span> kgs</h4>
+                </div>
+                <div>
+                    <h4>Peso ideal ADA +10%: <span id="idealAdaMenos10"></span> kgs</h4>
+                </div>
+                <div>
+                    <h4>Peso ajustado (ADA): <span id="valorPAjustadoAda"></span></h4>
+                </div>
+                <div>
+                    <h4>Peso ajustado ADA -10%: <span id="ajustadoAdaMas10"></span> kgs</h4>
+                </div>
+                <div>
+                    <h4>Peso ajustado ADA +10%: <span id="ajustadoAdaMenos10"></span> kgs</h4>
+                </div>
+                <div>
+                    <h4>Peso ideal (IMC): <span id="valorPIdealIMC"></span> kgs</h4>
+                </div>
+                <div>
+                    <h4>Peso ajustado (IMC): <span id="valorPAjustadoIMC"></span> kgs</h4>
+                </div>-->
+        </div>
+        <div class="contenedorInterno">
+
+        </div>
+    </div>
+
+        <table id="tablaResultados">
+            <tbody>
+<!--
+                <tr>
+                    <td class="td1" >:</td>
+                    <td class="td2" id=""></td>
+                    <td class="td3"></td>
+                </tr>
+-->
+                <tr>
+                    <td class="td1" >Nombre del cliente:</td>
+                    <td class="td2" id="nombreCliente"></td>
+                    <td class="td3"></td>
+                </tr>
+                                
+                <tr>
+                    <td class="td1" >Edad:</td>
+                    <td class="td2" id=""></td>
+                    <td class="td3">años</td>
+                </tr>
+                <tr>
+                    <td class="td1" >Peso:</td>
+                    <td class="td2" id=""></td>
+                    <td class="td3">kgs</td>
+                </tr>
+                <tr>
+                    <td class="td1" >Estatura:</td>
+                    <td class="td2" id="estaturaMetros"></td>
+                    <td class="td3">mts</td>
+                </tr>
+                     
+                <tr>
+                    <td class="td1" >Composicion corporal:</td>
+                    <td class="td2" id=""></td>
+                    <td class="td3"></td>
+                </tr>
+                                                
+                <tr>
+                    <td class="td1" >Grasa corporal:</td>
+                    <td class="td2" id=""></td>
+                    <td class="td3">%</td>
+                </tr>
+                                                
+
+
+                <tr>
+                    <td class="td1" >Masa grasa:</td>
+                    <td class="td2" id="masaGrasa"></td>
+                    <td class="td3"></td>
+                </tr>
+                <tr>
+                    <td class="td1">IMC:</td>
+                    <td class="td2" id="valorIMC"></td>
+                    <td class="td3" id="estadoIMC"></td>
+                </tr>
+                <tr>
+                    <td class="td1">Masa libre de grasa:</td>
+                    <td class="td2" id="masaLibreGrasa"></td>
+                    <td class="td3"></td>
+                </tr>
+                <tr>
+                    <td class="td1">Peso ideal (ADA):</td>
+                    <td class="td2" id="valorPIdealAda"></td>
+                    <td class="td3"></td>
+                </tr>
+                <tr>
+                    <td class="td1" >Peso ideal ADA -10%:</td>
+                    <td class="td2" id="idealAdaMas10"></td>
+                    <td class="td3">kgs</td>
+                </tr>
+                <tr>
+                    <td class="td1">Peso ideal ADA +10%:</td>
+                    <td class="td2" id="idealAdaMenos10"></td>
+                    <td class="td3">kgs</td>
+                </tr>
+                <tr>
+                    <td class="td1">Peso ajustado (ADA):</td>
+                    <td class="td2" id="valorPAjustadoAda"></td>
+                    <td class="td3">kgs</td>
+                </tr>
+                <tr>
+                    <td class="td1">Peso ajustado ADA -10%:</td>
+                    <td class="td2" id="ajustadoAdaMas10"></td>
+                    <td class="td3">kgs</td>
+                </tr>
+                <tr>
+                    <td class="td1">Peso ajustado ADA +10%:</td>
+                    <td class="td2" id="ajustadoAdaMenos10"></td>
+                    <td class="td3">kgs</td>
+                </tr>
+                <tr>
+                    <td class="td1">Peso ideal (IMC):</td>
+                    <td class="td2" id="valorPIdealIMC"></td>
+                    <td class="td3">kgs</td>
+                </tr>
+                <tr>
+                    <td class="td1">Peso ajustado (IMC):</td>
+                    <td class="td2" id="valorPAjustadoIMC"></td>
+                    <td class="td3">kgs</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+
+            </tbody>
+        </table>
+       
+
+    <button id="botonPesoIdeal">Calcular peso ideal</button>
+</section>
+
+
+</div>
     <div class="sectionContainer">
-        <h2>MEDIDAS ANTROPOMETRICAS</h2>
-        <h4>Llene todos los campos</h4>
+
         <section id="inputsAntropometricas">
             <form action="">
 
-                <label for="peso">Peso actual</label>
-                <input type="text" name="peso" id="peso">
+                
     </div>
     <div>
-        <label for="estatura">Talla en centimetros</label>
-        <input type="text" name="estatura" id="estatura">
-        <span id="estaturaMetros">0</span> <span id="estaturaMetrosLabel">mts</span>
+
     </div>
     <div>
-        <label for="edad">Edad</label>
-        <input type="text" name="edad" id="edad">
+
     </div>
     <div>
-        <label for="actividadFisica">Actividad física</label>
-        <select name="actividadFisica" id="actividadFisica">
-            <option value="" disabled selected>Seleccione una opcion</option>
-            <option value="1">Encamado ventilacion</option>
-            <option value="2">Encamado</option>
-            <option value="3">Sedentario</option>
-            <option value="4">Actividad fisica</option>
-        </select>
+       
     </div>
     <div>
-        <label for="sexo">Sexo</label>
-        <select name="sexo" id="sexo">
-            <option value="x" disabled selected>Seleccione una opcion</option>
-            <option value="m">Mujer</option>
-            <option value="h">Hombre</option>
-        </select>
+
     </div>
     <div>
-        <label for="grasaCorporal">Porcentaje de grasa corporal</label>
-        <input type="text" name="grasaCorporal" id="grasaCorporal"><span>%</span>
+
     </div>
 
     <div>
-        <label for="circunferenciaMunneca">Circunferencia de la muñeca</label>
-        <input type="text" name="circunferenciaMunneca" id="circunferenciaMunneca"><span>cms</span>
+ 
     </div>
 
 
@@ -70,53 +325,20 @@
 
     <section id="resultadosAntropometricas">
 
-        <div>
-            <h4>Masa grasa</h4>
-            <p id="masaGrasa">Llene el campo 'Peso actual' y el campo 'Porcentaje de grasa corporal'</p>
-        </div>
-        
-        <div>
-            <h4>Masa libre de grasa</h4>
-            <p id="masaLibreGrasa">Llene el campo 'Peso actual' y el campo 'Porcentaje de grasa corporal'</p>
-        </div>
 
-        <div>
-            <h4>Composicion corporal: <span id="composicionTamanno"></span></h4>
-            <p id="composicionCorporal">Llene el campo 'Talla en cms' y el campo 'Circunferencia de la muñeca'</p>
-        </div>
         
 
 
     </section>
 
     <section id="seccionIMC">
-        <div>
-            <h4>IMC: <span id="valorIMC"></span></h4>
-            <p id="estadoIMC">Llene el campo 'Peso en kg' y el campo 'Talla en centimetros'</p>
-        </div>
+
 
     </section>
 
     <section id="pesoIdeal">
-        <div>
-            <h4>Peso ideal (ADA): <span id="valorPIdealAda"></span></h4>
-            <h4>Peso ideal ADA -10%: <span id="idealAdaMas10"></span> kgs</h4>
-            <h4>Peso ideal ADA +10%: <span id="idealAdaMenos10"></span> kgs</h4>
 
-        </div>
-        <div>
-            <h4>Peso ajustado (ADA): <span id="valorPAjustadoAda"></span></h4>
-            <h4>Peso ajustado ADA -10%: <span id="ajustadoAdaMas10"></span> kgs</h4>
-            <h4>Peso ajustado ADA +10%: <span id="ajustadoAdaMenos10"></span> kgs</h4>
 
-        </div>
-        <div>
-            <h4>Peso ideal (IMC): <span id="valorPIdealIMC"></span> kgs</h4>
-        </div>
-        <div>
-            <h4>Peso ajustado (IMC): <span id="valorPAjustadoIMC"></span> kgs</h4>
-        </div>
-        <button id="botonPesoIdeal">Calcular peso ideal</button>
 
     </section>
     </div>

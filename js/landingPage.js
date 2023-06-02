@@ -2,7 +2,6 @@ let peso = document.querySelector('#peso');
 let estaturaCm = document.querySelector('#estatura');
 let estaturaMts = document.querySelector('#estaturaMetros');
 let estaturaMtsValue;
-let estaturaMtsLabel = document.querySelector('#estaturaMetrosLabel');
 let edad = document.querySelector('#edad');
 let actividadFisica = document.querySelector('#actividadFisica');
 let sexo = document.querySelector('#sexo');
@@ -28,7 +27,6 @@ estaturaCm.addEventListener("keyup", (event) => {
         estaturaMtsLabel.innerHTML = " "
     } else {
         estaturaMts.innerHTML = calculoEstatura;
-        estaturaMtsLabel.innerHTML = " metros"
         estaturaMtsValue = calculoEstatura;
     }
 
@@ -83,8 +81,8 @@ circunferenciaMunneca.addEventListener("keyup", (composicion) =>{
     let existeValorCircunferencia = esVacio(circunferenciaMunneca.value);
     if(existeValorEstatura == true && existeValorCircunferencia == true){
         let calculoComposicion = calcularComposicionCorporal(estaturaCm.value,circunferenciaMunneca.value );
-        composicionCorporal.innerHTML = calculoComposicion.toFixed(2);
-        composicionTamanno.innerHTML = compararComposicionSexo(calculoComposicion, sexo.value);
+        //composicionCorporal.innerHTML = calculoComposicion.toFixed(2);
+        composicionTamanno.value = compararComposicionSexo(calculoComposicion, sexo.value);
         
     }else{
         composicionCorporal.innerHTML = "Llene el campo 'Talla en cms' y el campo 'Circunferencia de la muñeca'"

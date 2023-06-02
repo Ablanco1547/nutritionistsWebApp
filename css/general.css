@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+  /*--Verde1: #d2f5f1;*/
+  --Verde1: #ecfdde;
+
+  /*--Verde2: #137c70;*/
+  --Verde2: #9ebc84;
+  --VerdeTexto: #093e38;
+  --Blanco: #fcf0df;
+  --blanco2: #e8f0fe;
+  --Negro:#000000;
+  --Azul: #84babc;
+  /*--FuenteWebsite: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia,
+    serif;*/
+  --FuenteWebsite:'Poppins', sans-serif;
+}
+
+html {
+  background-color: var(--Verde1);
+  color: var(--VerdeTexto);
+  font-size: 16px;
+  font-weight: 300;
+  font-family: var(--FuenteWebsite);
+  text-align: center;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5 {
+  font-size: 1.125rem;
+}
+input{
+  border-radius: 3px;
+  background: var(--blanco2);
+ /* box-shadow: inset 5px 5px 13px #bebebe,
+              inset -5px -5px 13px #ffffff;
+  */color: var(--VerdeTexto);
+  font-weight: 500;
+  text-align: center;
+}
+select{
+  border-radius: 3px;
+  background: var(--blanco2);
+  /*box-shadow: inset 11px 11px 22px #d1d1d1,
+              inset -11px -11px 22px #ffffff;
+  */color: var(--VerdeTexto);
+  font-size: 15px;
+  text-align: center;
+  height: 15px;
+  padding: 5px;
+  font-weight: 500;
+
+}
+
+#navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 30px;
+  align-items: center;
+  margin-bottom: 50px;
+  background-color: #e6fcd3;
+  box-shadow: -1px 11px 5px 0px rgba(0, 0, 0, 0.048);
+}
+
+#navbar .logo{
+  height: 70px;
+  width: auto;
+}
+.contenedorLogo{
+  width: 109.8px;
+}
+#navbar button{
+  border: none;
+  background-color: var(--Verde2);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+#navbar button a{
+font-family: var(--FuenteWebsite);
+text-decoration: none;
+color: #093e38;
+font-size: 1rem;
+
+}
+
+
+#navbar h1{
+  text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.199);
+  font-size: 2.5rem;
+}
+
+
+
+
+#nombreCompleto{
+  margin-bottom: -25px;
+  margin-top: 40px;
+}
+#nombreCompleto input{
+  width: 400px;
+}
+.contenedorMedidas {
+  /*display: none!important;*/
+  width: 800px;
+  /*height: 629px;*/
+  height: auto;
+
+  border-radius: 26px;
+  color: var(--Blanco);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  padding: 30px 0px;
+  background-color: var(--Verde2);
+  box-shadow: 10px 10px 12px -1px #9ebc8494;
+  /*background: #d2f5f1;
+  box-shadow: 26px 26px 53px #b3d0cd, -26px -26px 53px #f2ffff;
+*/
+}
+#resultadosAntro {
+  width: 800px;
+  /*height: 220px;*/
+  height: auto;
+  border-radius: 26px;
+  background-color: var(--Azul);
+  box-shadow: 10px 10px 12px -1px #9ebc8494; margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 50px;
+  padding: 30px 0px;
+  color: black;
+}
+
+#resultadosAntro h2{
+  text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.199);
+}
+
+.contenedorMedidas h2,h3{
+  margin: 10px 0px 5px 0px;
+}
+
+.contenedorMedidas h3{
+  color: var(--VerdeTexto);
+}
+.contenedorMedidas h2{
+  margin-top: 18px;
+  margin-bottom: 5px;
+  color: var(--Verde1);
+  text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.199);
+}
+
+.contenedorMedidas label{
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--VerdeTexto );
+}
+
+
+.contenedorSecundario{
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+  
+}
+.contenedorInterno{
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  margin:20px 35px 15px 35px;
+
+}
+
+.contenedorMedidas input{
+    width: 100px;
+}
+.contenedorMedidas select{
+    width: 172px;
+}
+
+.itemAntro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  border-bottom: 1px solid #093e383f;
+}
+.itemAntro input, select{
+  margin: 10px;
+  font-size: 15px;
+}
+
+
+#tablaResultados{
+  font-size: 1rem;
+
+}
+#tablaResultados tr:nth-child(odd){
+  background-color: #92d0d1;
+}
+#tablaResultados tr{
+  height: 35px;
+
+}
+#tablaResultados td{
+  vertical-align: middle;
+}
+
+
+#tablaResultados .td1{
+
+  width: 300px;
+  text-align: end;
+
+
+}
+#tablaResultados .td2{
+
+  width: 195px;
+  text-align: center;
+  font-weight: 500;
+
+}
+#tablaResultados .td3{
+
+  width: 150px;
+  text-align: left;
+
+}
