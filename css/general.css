@@ -64,6 +64,18 @@ select{
 
 }
 
+.boton2{
+  border: none;
+  background-color: var(--Verde1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: var(--FuenteWebsite);
+text-decoration: none;
+color: #093e38;
+font-size: 1rem;
+}
+
+
 #navbar{
   display: flex;
   flex-direction: row;

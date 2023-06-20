@@ -378,7 +378,7 @@ botonPesoIdeal.addEventListener('click',(pIdeal)=>{
         objetoCliente.actividadFisica = actividadFisica[actividadFisica.value].innerHTML;
 
         /*Resultados*/
-        objetoCliente.masaGrasa = calcularMasaGrasa(peso.value,grasaCorporal.value)
+        objetoCliente.masaGrasa = calcularMasaGrasa(peso.value,grasaCorporal.value).toFixed(2)
         objetoCliente.IMC = parseInt(calcularIMC(peso.value,calculoMetros()).toFixed(2))
         objetoCliente.masaLibreGrasa = calcularMasaLibreGrasa(peso.value, objetoCliente.masaGrasa)
 
