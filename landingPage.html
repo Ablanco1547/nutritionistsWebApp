@@ -38,8 +38,8 @@
 
 
     <div class="itemAntro" id="nombreCompleto">
-        <label for="edad">Nombre completo</label>
-        <input type="text" name="edad" id="edad">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" name="nombre" id="nombreCompletoInput">
     </div>
     
     <div class="contenedorSecundario">
@@ -100,7 +100,10 @@
                     <option value="4">Actividad fisica</option>
                 </select>
             </div>
+            <button id="botonPesoIdeal">Calcular peso ideal</button>
         </div>
+
+
 
     </div>
 
@@ -174,35 +177,35 @@
 -->
                 <tr>
                     <td class="td1" >Nombre del cliente:</td>
-                    <td class="td2" id="nombreCliente"></td>
+                    <td class="td2" id="nombreClienteimp"></td>
                     <td class="td3"></td>
                 </tr>
                                 
                 <tr>
                     <td class="td1" >Edad:</td>
-                    <td class="td2" id=""></td>
+                    <td class="td2" id="edadClienteimp"></td>
                     <td class="td3">años</td>
                 </tr>
                 <tr>
                     <td class="td1" >Peso:</td>
-                    <td class="td2" id=""></td>
+                    <td class="td2" id="pesoClienteimp"></td>
                     <td class="td3">kgs</td>
                 </tr>
                 <tr>
                     <td class="td1" >Estatura:</td>
-                    <td class="td2" id="estaturaMetros"></td>
+                    <td class="td2" id="estaturaImp"></td>
                     <td class="td3">mts</td>
                 </tr>
                      
                 <tr>
                     <td class="td1" >Composicion corporal:</td>
-                    <td class="td2" id=""></td>
+                    <td class="td2" id="composicionImp"></td>
                     <td class="td3"></td>
                 </tr>
                                                 
                 <tr>
                     <td class="td1" >Grasa corporal:</td>
-                    <td class="td2" id=""></td>
+                    <td class="td2" id="grasaImp"></td>
                     <td class="td3">%</td>
                 </tr>
                                                 
@@ -210,63 +213,63 @@
 
                 <tr>
                     <td class="td1" >Masa grasa:</td>
-                    <td class="td2" id="masaGrasa"></td>
+                    <td class="td2" id="masaGrasaImp"></td>
                     <td class="td3"></td>
                 </tr>
                 <tr>
                     <td class="td1">IMC:</td>
-                    <td class="td2" id="valorIMC"></td>
-                    <td class="td3" id="estadoIMC"></td>
+                    <td class="td2" id="IMCImp"></td>
+                    <td class="td3" id="estadoIMCImp"></td>
                 </tr>
                 <tr>
                     <td class="td1">Masa libre de grasa:</td>
-                    <td class="td2" id="masaLibreGrasa"></td>
+                    <td class="td2" id="masaLibreGrasaImp"></td>
                     <td class="td3"></td>
                 </tr>
                 <tr>
                     <td class="td1">Peso ideal (ADA):</td>
-                    <td class="td2" id="valorPIdealAda"></td>
+                    <td class="td2" id="pesoIdealAdaImp"></td>
                     <td class="td3"></td>
                 </tr>
                 <tr>
                     <td class="td1" >Peso ideal ADA -10%:</td>
-                    <td class="td2" id="idealAdaMas10"></td>
+                    <td class="td2" id="idealAdaMas10Imp"></td>
                     <td class="td3">kgs</td>
                 </tr>
                 <tr>
                     <td class="td1">Peso ideal ADA +10%:</td>
-                    <td class="td2" id="idealAdaMenos10"></td>
+                    <td class="td2" id="idealAdaMenos10Imp"></td>
                     <td class="td3">kgs</td>
                 </tr>
                 <tr>
                     <td class="td1">Peso ajustado (ADA):</td>
-                    <td class="td2" id="valorPAjustadoAda"></td>
+                    <td class="td2" id="pesoAjustadoAdaImp"></td>
                     <td class="td3">kgs</td>
                 </tr>
                 <tr>
                     <td class="td1">Peso ajustado ADA -10%:</td>
-                    <td class="td2" id="ajustadoAdaMas10"></td>
+                    <td class="td2" id="ajustadoAdaMas10Imp"></td>
                     <td class="td3">kgs</td>
                 </tr>
                 <tr>
                     <td class="td1">Peso ajustado ADA +10%:</td>
-                    <td class="td2" id="ajustadoAdaMenos10"></td>
+                    <td class="td2" id="ajustadoAdaMenos10Imp"></td>
                     <td class="td3">kgs</td>
                 </tr>
                 <tr>
                     <td class="td1">Peso ideal (IMC):</td>
-                    <td class="td2" id="valorPIdealIMC"></td>
+                    <td class="td2" id="pesoIdealIMCImp"></td>
                     <td class="td3">kgs</td>
                 </tr>
                 <tr>
                     <td class="td1">Peso ajustado (IMC):</td>
-                    <td class="td2" id="valorPAjustadoIMC"></td>
+                    <td class="td2" id="pesoAjustadoIMCImp"></td>
                     <td class="td3">kgs</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="td1">TMB (Mifflin):</td>
+                    <td class="td2" id="tmbMifImp"></td>
+                    <td class="td3"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -284,7 +287,7 @@
         </table>
        
 
-    <button id="botonPesoIdeal">Calcular peso ideal</button>
+
 </section>
 
 
