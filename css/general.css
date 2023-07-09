@@ -255,3 +255,30 @@ font-size: 1rem;
   text-align: left;
 
 }
+
+
+@media (min-width: 576px) {
+  html{
+    background-color: black;
+  }
+}
+@media (min-width: 768px) {
+  html{
+    background-color: rgb(170, 18, 18);
+  }
+}
+@media (min-width: 992px) {
+  html{
+    background-color: rgb(13, 136, 50);
+  }
+}
+@media (min-width: 1200px) {
+  html{
+    background-color: rgb(209, 181, 24);
+  }
+}
+@media (min-width: 1400px) {
+  html{
+    background-color: rgb(123, 20, 240);
+  }
+}

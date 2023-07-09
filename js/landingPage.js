@@ -432,17 +432,17 @@ botonPesoIdeal.addEventListener('click',(pIdeal)=>{
             objetoCliente.ValorSexoMif = parseInt(0);
         }
 
-        objetoCliente.tmbMifflin = calcularTMBMifflin(objetoCliente.peso,objetoCliente.estaturaCm,objetoCliente.edad,objetoCliente.ValorSexoMif).toFixed(2)
+        objetoCliente.tmbMifflin = calcularTMBMifflin(objetoCliente.peso,objetoCliente.estaturaCm,objetoCliente.edad,objetoCliente.ValorSexoMif).toFixed(0)
 
         /*Calculo tmbHyB */
 
         if(objetoCliente.sexo == "m"){
             objetoCliente.ValorSexoHyB = 655;
-           objetoCliente.tmbHyB = calcularTMBHyBM(objetoCliente.peso, objetoCliente.estaturaCm, objetoCliente.edad, objetoCliente.ValorSexoHyB).toFixed(2);
+           objetoCliente.tmbHyB = calcularTMBHyBM(objetoCliente.peso, objetoCliente.estaturaCm, objetoCliente.edad, objetoCliente.ValorSexoHyB).toFixed(0);
 
         }else if (objetoCliente.sexo == "h"){
             objetoCliente.ValorSexoHyB = 66.5;
-            objetoCliente.tmbHyB = calcularTMBHyBM(objetoCliente.peso, objetoCliente.estaturaCm, objetoCliente.edad, objetoCliente.ValorSexoHyB).toFixed(2);
+            objetoCliente.tmbHyB = calcularTMBHyBM(objetoCliente.peso, objetoCliente.estaturaCm, objetoCliente.edad, objetoCliente.ValorSexoHyB).toFixed(0);
         }
 
             /*Calculo tmbHyB */
@@ -457,9 +457,9 @@ botonPesoIdeal.addEventListener('click',(pIdeal)=>{
             objetoCliente.valorVET = 1.5;
         }
 
-        objetoCliente.vetMifflin = calcularVETMifflin(objetoCliente.tmbMifflin, objetoCliente.valorVET).toFixed(2);
+        objetoCliente.vetMifflin = calcularVETMifflin(objetoCliente.tmbMifflin, objetoCliente.valorVET).toFixed(0);
 
-        objetoCliente.vetHyB = calcularVETHyB(objetoCliente.tmbHyB, objetoCliente.valorVET).toFixed(2);
+        objetoCliente.vetHyB = calcularVETHyB(objetoCliente.tmbHyB, objetoCliente.valorVET).toFixed(0);
     
         imprimirObjeto();
 
