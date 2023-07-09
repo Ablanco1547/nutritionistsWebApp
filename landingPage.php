@@ -277,10 +277,16 @@
                     <td class="td3">Calorías</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="td1">VET (Mifflin):</td>
+                    <td class="td2" id="vetMifImp"></td>
+                    <td class="td3">Calorías</td>
                 </tr>
+                <tr>
+                    <td class="td1">VET (HyB):</td>
+                    <td class="td2" id="vetHyBImp"></td>
+                    <td class="td3">Calorías</td>
+                </tr>
+
 
 
             </tbody>

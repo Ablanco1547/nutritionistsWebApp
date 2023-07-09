@@ -346,6 +346,15 @@ const calcularTMBHyBH = (pPeso, pTallaCm, pEdad, pValorSexoHyB)=>{
 const calcularTMBHyBM = (pPeso, pTallaCm, pEdad, pValorSexoHyB)=>{
     return(pValorSexoHyB + (9.56*pPeso) + (1.85*pTallaCm) - (4.68*pEdad))
 }
+
+const calcularVETMifflin = (PTmbMifflin, PValorVET)=>{
+    return(PTmbMifflin * PValorVET);
+};
+
+const calcularVETHyB = (PTmbHyB, PValorVET)=>{
+    return(PTmbHyB * PValorVET);
+};
+
 botonPesoIdeal.addEventListener('click',(pIdeal)=>{
 
     const nombreCliente = document.querySelector("#nombreCompletoInput");
@@ -423,18 +432,34 @@ botonPesoIdeal.addEventListener('click',(pIdeal)=>{
             objetoCliente.ValorSexoMif = parseInt(0);
         }
 
-        objetoCliente.tmbMifflin = calcularTMBMifflin(objetoCliente.peso,objetoCliente.estaturaCm,objetoCliente.edad,objetoCliente.ValorSexoMif)
+        objetoCliente.tmbMifflin = calcularTMBMifflin(objetoCliente.peso,objetoCliente.estaturaCm,objetoCliente.edad,objetoCliente.ValorSexoMif).toFixed(2)
+
+        /*Calculo tmbHyB */
 
         if(objetoCliente.sexo == "m"){
             objetoCliente.ValorSexoHyB = 655;
-           objetoCliente.tmbHyB = calcularTMBHyBM(objetoCliente.peso, objetoCliente.estaturaCm, objetoCliente.edad, objetoCliente.ValorSexoHyB);
+           objetoCliente.tmbHyB = calcularTMBHyBM(objetoCliente.peso, objetoCliente.estaturaCm, objetoCliente.edad, objetoCliente.ValorSexoHyB).toFixed(2);
 
         }else if (objetoCliente.sexo == "h"){
             objetoCliente.ValorSexoHyB = 66.5;
-            objetoCliente.tmbHyB = calcularTMBHyBM(objetoCliente.peso, objetoCliente.estaturaCm, objetoCliente.edad, objetoCliente.ValorSexoHyB);
+            objetoCliente.tmbHyB = calcularTMBHyBM(objetoCliente.peso, objetoCliente.estaturaCm, objetoCliente.edad, objetoCliente.ValorSexoHyB).toFixed(2);
         }
 
+            /*Calculo tmbHyB */
 
+        if(objetoCliente.actividadFisica == "Encamado ventilacion"){
+            objetoCliente.valorVET = 1.2;
+        }else if(objetoCliente.actividadFisica == "Encamado"){
+            objetoCliente.valorVET = 1.3;
+        }else if(objetoCliente.actividadFisica == "Sedentario"){
+            objetoCliente.valorVET = 1.4;
+        }else if(objetoCliente.actividadFisica == "Actividad fisica"){
+            objetoCliente.valorVET = 1.5;
+        }
+
+        objetoCliente.vetMifflin = calcularVETMifflin(objetoCliente.tmbMifflin, objetoCliente.valorVET).toFixed(2);
+
+        objetoCliente.vetHyB = calcularVETHyB(objetoCliente.tmbHyB, objetoCliente.valorVET).toFixed(2);
     
         imprimirObjeto();
 
@@ -467,7 +492,9 @@ const imprimirObjeto = () =>{
     let pesoIdealIMCImp = document.querySelector('#pesoIdealIMCImp');
     let pesoAjustadoIMCImp = document.querySelector('#pesoAjustadoIMCImp');
     let tmbMifImp = document.querySelector('#tmbMifImp');
-    let tmbHyB = document.querySelector('#tmbHyBImp');
+    let tmbHyBImp = document.querySelector('#tmbHyBImp');
+    let vetMifImp = document.querySelector('#vetMifImp');
+    let vetHyBImp = document.querySelector('#vetHyBImp');
     /*let  = document.querySelector('#');*/
 
 
@@ -491,7 +518,10 @@ const imprimirObjeto = () =>{
     pesoIdealIMCImp.innerHTML = objetoCliente.pesoIdealImc
     pesoAjustadoIMCImp.innerHTML = objetoCliente.pesoIdealImcAjust
     tmbMifImp.innerHTML = objetoCliente.tmbMifflin;
-    tmbHyB.innerHTML = objetoCliente.tmbHyB;
+    tmbHyBImp.innerHTML = objetoCliente.tmbHyB;
+    vetMifImp.innerHTML = objetoCliente.vetMifflin;
+    vetHyBImp.innerHTML = objetoCliente.vetHyB;
+
 
 
     console.log(objetoCliente);
