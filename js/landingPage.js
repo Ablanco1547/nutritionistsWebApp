@@ -339,7 +339,13 @@ const calcularADAHombre = (pEstaturaCms) =>{
 const calcularTMBMifflin = (pPeso, pTallaCm, pEdad, pValorSexoMif) =>{
     return (10*pPeso)+(6.25*pTallaCm)-(5*pEdad)+pValorSexoMif;
 }
+const calcularTMBHyBH = (pPeso, pTallaCm, pEdad, pValorSexoHyB)=>{
+    return(pValorSexoHyB + (13.75*pPeso)+(5*pTallaCm)-(6.78*pEdad))
+}
 
+const calcularTMBHyBM = (pPeso, pTallaCm, pEdad, pValorSexoHyB)=>{
+    return(pValorSexoHyB + (9.56*pPeso) + (1.85*pTallaCm) - (4.68*pEdad))
+}
 botonPesoIdeal.addEventListener('click',(pIdeal)=>{
 
     const nombreCliente = document.querySelector("#nombreCompletoInput");
@@ -419,7 +425,14 @@ botonPesoIdeal.addEventListener('click',(pIdeal)=>{
 
         objetoCliente.tmbMifflin = calcularTMBMifflin(objetoCliente.peso,objetoCliente.estaturaCm,objetoCliente.edad,objetoCliente.ValorSexoMif)
 
+        if(objetoCliente.sexo == "m"){
+            objetoCliente.ValorSexoHyB = 655;
+           objetoCliente.tmbHyB = calcularTMBHyBM(objetoCliente.peso, objetoCliente.estaturaCm, objetoCliente.edad, objetoCliente.ValorSexoHyB);
 
+        }else if (objetoCliente.sexo == "h"){
+            objetoCliente.ValorSexoHyB = 66.5;
+            objetoCliente.tmbHyB = calcularTMBHyBM(objetoCliente.peso, objetoCliente.estaturaCm, objetoCliente.edad, objetoCliente.ValorSexoHyB);
+        }
 
 
     
@@ -454,6 +467,7 @@ const imprimirObjeto = () =>{
     let pesoIdealIMCImp = document.querySelector('#pesoIdealIMCImp');
     let pesoAjustadoIMCImp = document.querySelector('#pesoAjustadoIMCImp');
     let tmbMifImp = document.querySelector('#tmbMifImp');
+    let tmbHyB = document.querySelector('#tmbHyBImp');
     /*let  = document.querySelector('#');*/
 
 
@@ -477,6 +491,7 @@ const imprimirObjeto = () =>{
     pesoIdealIMCImp.innerHTML = objetoCliente.pesoIdealImc
     pesoAjustadoIMCImp.innerHTML = objetoCliente.pesoIdealImcAjust
     tmbMifImp.innerHTML = objetoCliente.tmbMifflin;
+    tmbHyB.innerHTML = objetoCliente.tmbHyB;
 
 
     console.log(objetoCliente);
